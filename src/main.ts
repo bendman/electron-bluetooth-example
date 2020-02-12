@@ -1,9 +1,9 @@
 import { app, BrowserWindow } from 'electron';
-const webbtPolyfill = require('./electron-webbt-dialog');
+import { setupBluetooth } from './utils/bluetooth';
 
 function createWindow() {
   // Create the browser window.
-  let win = new BrowserWindow({
+  let window = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -12,10 +12,8 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  win.loadFile('./index.html');
-
-  console.log('webbt_init', win);
-  webbtPolyfill(win);
+  window.loadFile('./index.html');
+  setupBluetooth(window);
 }
 
 app.on('ready', createWindow);
