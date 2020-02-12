@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
+import React, { useCallback } from 'react';
+import ReactDOM from 'react-dom';
+import { WebBle } from './bluetooth';
+require('./electron-webbt-dialog')();
 
 const Index = () => {
-  const [count, setCount] = useState(0);
+  const scan = useCallback(() => {
+    console.log('start scan');
+    WebBle.startScanning((id, name) => {
+      console.log('scan done', id, name);
+    });
+  }, []);
 
-  return (
-    <div onClick={() => setCount(count + 1)}>
-      Hello React!
-      <br />
-      count: {count}
-    </div>
-  );
+  return <button onClick={scan}>Scan</button>;
 };
 
-render(<Index />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('app'));

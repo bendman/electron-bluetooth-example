@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
+    "@types/web-bluetooth": "0.0.5",
     "electron": "8.0.0",
     "html-webpack-plugin": "3.2.0",
     "react": "16.12.0",

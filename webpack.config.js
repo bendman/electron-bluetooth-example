@@ -5,10 +5,13 @@ module.exports = [
     mode: 'development',
     entry: './src/electron.ts',
     target: 'electron-main',
+    resolve: {
+      extensions: ['.js', '.json', '.ts', '.tsx'],
+    },
     module: {
       rules: [
         {
-          test: /\.ts?$/,
+          test: /\.tsx?$/,
           include: /src/,
           use: [{ loader: 'ts-loader' }],
         },
@@ -24,10 +27,13 @@ module.exports = [
     entry: './src/react.tsx',
     target: 'electron-renderer',
     devtool: 'source-map',
+    resolve: {
+      extensions: ['.js', '.json', '.ts', '.tsx'],
+    },
     module: {
       rules: [
         {
-          test: /\.ts(x?)$/,
+          test: /\.tsx?$/,
           include: /src/,
           use: [{ loader: 'ts-loader' }],
         },
