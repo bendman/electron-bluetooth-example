@@ -29,6 +29,11 @@
       align-items: center;
       justify-content: center;
     }
+
+    table {
+      width: 100%;
+    }
+
     button {
       background: #85474c;
       height: 3rem;
@@ -43,6 +48,19 @@
 
     .battery-level {
       font-size: 3rem;
+      position: relative;
+      border: 1px solid white;
+    }
+
+    .battery-level:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: calc(var(--level) * 1%);
+      background: #f69137;
+      z-index: -1;
     }
   </style>
 
