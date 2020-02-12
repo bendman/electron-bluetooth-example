@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron src/electron.js"
+    "start": "npm run build && electron ./build/electron.js",
+    "build": "webpack --config ./webpack.config.js"
   },
   "keywords": [],
   "author": "Ben Duncan <ben@cascadiaconcepts.com> (http://benduncan.me)",
   "license": "MIT",
   "devDependencies": {
-    "electron": "8.0.0"
+    "electron": "8.0.0",
+    "ts-loader": "6.2.1",
+    "typescript": "3.7.5",
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11"
   }
 }
